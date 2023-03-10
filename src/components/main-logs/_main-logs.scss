@@ -1,0 +1,27 @@
+.main-logs {
+    width: 50%;
+
+    h3 {
+        margin-bottom: .5em;
+    }
+
+    .menu-logs {
+        height: 250px;
+        margin: 0 auto;
+        padding: 15px 10px;
+        border: 3px solid $yellow;
+        border-radius: 10px;
+        background-color: $yellow-light;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+}
+
+.center {
+    margin: 0 auto;
+}
+

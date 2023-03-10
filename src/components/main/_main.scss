@@ -1,0 +1,85 @@
+.main {
+    height: 100vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .main-menu-pokemon {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .attack-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .arrow-img {
+            display: block;
+            width: 30px;
+            animation: rotation .5s infinite linear;
+        }
+
+        .arrow1 {
+            animation: none;
+            transform: rotate(180deg)
+        }
+
+        .arrow2 {
+            animation: none;
+            transform: rotate(0deg)
+        }
+
+        .hidden {
+            display: none
+        }
+
+        @keyframes rotation {
+            from {transform: roatate(0deg);}
+            to {transform: rotate(360deg)}
+        }
+
+        .btn-disabled {
+            opacity: 0.3;
+        }
+    }
+
+    .main-menu-logs-wrap {
+        margin-top: 3em;
+        justify-self: flex-end;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* MODAL */
+
+.modal {
+    display: block;
+   position: absolute;
+   top: 0;
+   right: 50%;
+   background-color: $modal-bcg;
+
+   .modal-text {
+    text-transform: capitalize;
+    font-weight: 800;
+    position: absolute;
+    top: 75px;
+    right: 50%;
+    transform: translate(50%);
+   }
+
+   .modal-menu {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+   }
+
+}
+

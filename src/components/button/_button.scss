@@ -1,0 +1,24 @@
+.btn {
+    display: inline-block;
+    font-family:'Bellota', sans-serif;
+    font-weight: 700;
+    color: $white;
+    background-color: $blue;
+    padding: .5em 2.5em;
+    border-radius: 50px;
+    border: 0;
+    
+    &:hover {
+        cursor: pointer;
+        color: $blue-light;
+        background-color: $blue;
+        box-shadow: 0 0 0 4px $blue-light;
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        color: $blue-light;
+        background-color: $blue;
+    }
+}
+

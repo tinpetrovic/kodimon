@@ -1,0 +1,128 @@
+.main-pokemon {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    .pokemon1-dmg {
+        color: $red-light;
+        position: absolute;
+        top: 100px;
+        right: 70px;
+        transform: rotate(50deg);
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    .pokemon2-dmg {
+        color: $red-light;
+        position: absolute;
+        top: 100px;
+        left: 70px;
+        transform: rotate(-50deg);
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+
+    /* PERCENT AND HPBAR */
+
+    .pokemon-hp-percent {
+        color: $green-light;
+        -webkit-text-stroke-width: .5px;
+        -webkit-text-stroke-color: $green;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+    }
+
+    .pokemon-hp-percent-danger {
+        color: $yellow;
+        -webkit-text-stroke-color: orange;
+    }
+
+    .pokemon-hp-percent-low {
+        color: red;
+        -webkit-text-stroke-color: red;
+    }
+
+    .progress-wrap {
+        border: 3px solid $green;
+        background-color: $white;
+        .progress-bar {
+            background-color: $green-light;
+        }
+    }
+
+    .progress-wrap-danger {
+        border: 3px solid orange;
+        background-color: $white;
+        .progress-bar {
+            background-color: $yellow;
+        }
+    }
+
+    .progress-wrap-low {
+        border: 3px solid red;
+        background-color: $white;
+        .progress-bar {
+            background-color: $red-light;
+        }
+    }
+
+
+    .pokemon-name {
+        text-transform: capitalize;
+        text-align: center;
+        font-weight: 700;
+    }
+
+
+    /* POKEMON IMG */
+
+    .pokemon-img {
+        width: 100px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    .pokemon1-attack-img {
+        animation: attack1 1s ease-in-out;
+    }
+
+    @keyframes attack1 {
+        0% {transform: translateX(0);}
+        50% {transform: translateX(30vw) translateY(-10vh)}
+        100% {transform: translateX(60vw)}
+    }
+
+    .pokemon2-attack-img {
+        animation: attack2 1s ease-in-out;
+    }
+
+    @keyframes attack2 {
+        0% {transform: translateX(0);}
+        50% {transform: translateX(-30vw) translateY(-10vh)}
+        100% {transform: translateX(-60vw)}
+    }
+
+    /* POKEMON STATS */
+
+    .pokemon-stats {
+        h3 {
+            margin-bottom: .5em
+        }
+
+        .pokemon-stats__wrapper {
+            padding: 15px 10px;
+            border: 3px solid $yellow;
+            border-radius: 10px;
+            background-color: $yellow-light;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+}

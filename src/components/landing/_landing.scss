@@ -1,0 +1,19 @@
+.landing-cont {
+    height: 100vh;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .logo-container {
+        position: relative;
+
+        .logo-img {
+            position: absolute;
+            top: -55px;
+            left: 40%;
+            z-index: -1;
+            transform: rotate(-30deg)
+        }
+    }
+}
