@@ -29,7 +29,7 @@ const Pokemon = ({ pokemon, pokemonHP, setPokemonHP, loseHP, dmgNum, attackAnima
             <p className={ getPokemonPercentage() < 50 && getPokemonPercentage() >= 30 ? "pokemon-hp-percent pokemon-hp-percent-danger" : getPokemonPercentage() < 30 ? "pokemon-hp-percent pokemon-hp-percent-low" : "pokemon-hp-percent"}>{pokemon && getPokemonPercentage()}%</p>
             <ProgressBar className={getPokemonPercentage() < 50 && getPokemonPercentage() >= 30 ? "progress-wrap-danger mb-2" : getPokemonPercentage() < 30 ? "progress-wrap-low mb-2" : "progress-wrap mb-2"} now={pokemonHP} max={pokemon.stats && pokemon.stats[0].base_stat} />
         </div>
-        <h3 className="pokemon-name">{pokemon.name} <span>{winsNumber.num > 0 && winsNumber.num}</span> </h3>
+        <h3 className="pokemon-name">{pokemon.name} {/* <span>{winsNumber.num > 0 && winsNumber.num}</span> */} </h3>
         <img src={pokemon.sprites && pokemon.sprites.front_default} alt="pokemon" className={attackAnimation.pokemon === 1 ? "pokemon1-attack-img pokemon-img" : attackAnimation.pokemon === 2 ? "pokemon2-attack-img pokemon-img" : "pokemon-img"} />
         <div className="pokemon-stats">
             <h3>Stats</h3>
