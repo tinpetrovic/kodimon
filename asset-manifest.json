@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/kodimon/static/css/main.2788bae4.css",
+    "main.js": "/kodimon/static/js/main.e0e38884.js",
+    "static/js/787.ba2e0e7a.chunk.js": "/kodimon/static/js/787.ba2e0e7a.chunk.js",
+    "static/media/kodimon 1.png": "/kodimon/static/media/kodimon 1.7c0bed2da3b0eb99eee7.png",
+    "static/media/Kodi-logo.svg": "/kodimon/static/media/Kodi-logo.2b85d52aed154995c4e7aae0e0691c2d.svg",
+    "index.html": "/kodimon/index.html",
+    "static/media/arrow.svg": "/kodimon/static/media/arrow.924776536ca5bf7cdfa889df44c2c07a.svg",
+    "main.2788bae4.css.map": "/kodimon/static/css/main.2788bae4.css.map",
+    "main.e0e38884.js.map": "/kodimon/static/js/main.e0e38884.js.map",
+    "787.ba2e0e7a.chunk.js.map": "/kodimon/static/js/787.ba2e0e7a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2788bae4.css",
+    "static/js/main.e0e38884.js"
+  ]
+}
