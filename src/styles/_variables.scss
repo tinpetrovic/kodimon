@@ -1,4 +1,9 @@
+
+/* BASIC */
 $white: #FFF;
+$black: #000;
+
+
 $blue: #0073BC;
 $blue-light: #73B9E5;
 $yellow: #FFCC00;
@@ -7,6 +12,16 @@ $red: #FFF7D6;
 $red-light: #FF7575;
 $green: #079325;
 $green-light: #62FF84;
-$modal-bcg: rgba(255,255,255, 0.6)
+
+$orange: orange;
+$bright-red: red;
+
+/* MODAL */
+$modal-bcg: rgba(255,255,255, 0.6);
+
+/* PROGRESS BAR */
+$progress-default: 3px solid $green;
+$progress-danger: 3px solid $orange; 
+$progress-low: 3px solid $bright-red;
 
 

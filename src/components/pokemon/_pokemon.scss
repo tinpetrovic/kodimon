@@ -48,7 +48,7 @@
     }
 
     .progress-wrap {
-        border: 3px solid $green;
+        border: $progress-default;
         background-color: $white;
         .progress-bar {
             background-color: $green-light;
@@ -56,7 +56,7 @@
     }
 
     .progress-wrap-danger {
-        border: 3px solid orange;
+        border: $progress-danger;
         background-color: $white;
         .progress-bar {
             background-color: $yellow;
@@ -64,7 +64,7 @@
     }
 
     .progress-wrap-low {
-        border: 3px solid red;
+        border: $progress-low;
         background-color: $white;
         .progress-bar {
             background-color: $red-light;
@@ -76,6 +76,14 @@
         text-transform: capitalize;
         text-align: center;
         font-weight: 700;
+    }
+
+    .rip {
+        position: absolute;
+        font-size: 20px;
+        font-weight: 800;
+        top: 100px;
+        left: 150px;
     }
 
 
@@ -105,6 +113,10 @@
         0% {transform: translateX(0);}
         50% {transform: translateX(-30vw) translateY(-10vh)}
         100% {transform: translateX(-60vw)}
+    }
+
+    .pokemon-dead {
+        transform: translateY(25px) rotate(90deg)
     }
 
     /* POKEMON STATS */

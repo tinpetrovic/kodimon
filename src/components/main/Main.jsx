@@ -7,7 +7,7 @@ import { arrow } from '../../assets/index'
 import Button from '../button/Button'
 
 const Main = () => {
-    const { pokemon1, setPokemon1, pokemon2, setPokemon2, winsNumber, setWinsNumber } = useContext(GameContext);
+    const { pokemon1, setPokemon1, pokemon2, setPokemon2} = useContext(GameContext);
     const [pokemon1HP, setPokemon1HP] = useState("");
     const [pokemon2HP, setPokemon2HP] = useState("");
     const [pokemon1Speed, setPokemon1Speed] = useState("");
@@ -20,6 +20,9 @@ const Main = () => {
     const [win, setWin] = useState({win: false, pokemon: ""});
     const [dmgNum, setDmgNum] = useState({dmg: "", pokemon: ""});
     const [attackAnimation, setAttackAnimation] = useState({animation: false, pokemon: ""});
+
+/*     const mockupPokemon1 = "mewtwo"
+    const mockupPokemon2 = "magikarp" */
 
     const fetchPokemon1 = async () => {
         const rnd = Math.floor((Math.random() * 151) + 1);
@@ -37,7 +40,6 @@ const Main = () => {
         setPokemon2({...data, pokemon_2: true});
         setPokemon2HP(data.stats[0].base_stat);
         setPokemon2Speed(data.stats[5].base_stat);
-        console.log(data);
     };
 
     const getTurn = () => {
@@ -57,26 +59,34 @@ const Main = () => {
 
 
     useEffect(() => {
-        fetchPokemon1();
-        fetchPokemon2();
+        let ignore = false
+
+        if (!ignore) {
+            fetchPokemon1();
+            fetchPokemon2();
+        }
+       
         return () => {
-            setPokemon1({});
-            setPokemon2({});
+            ignore = true
         }
     }, []);
 
     useEffect(() => {
         setTimeout(getTurn, 1500);
         return () => {
-            setTurn1(0);
+            clearInterval(getTurn);
+            setTurn1(0)
         }
-    }, [pokemon1Speed, pokemon2Speed]);
+    }, [pokemon1Speed, pokemon2Speed, win.win]);
 
     useEffect(() => {
-        checkWin();
         setLose1HP(0);
         setLose2HP(0);
     }, [pokemon1HP, pokemon2HP]);
+
+    useEffect(() => {
+        checkWin()
+    }, [lose1HP, lose2HP])
 
     const checkWin = () => {
         if(turn1 !== 0) {
@@ -121,14 +131,16 @@ const Main = () => {
                 setTimeout(() => {
                     setLose2HP(damage);
                     setDmgNum({dmg: `${damage} dmg!`, pokemon: 2});
+                    setLogs([...logs, `${pokemon1Name} attacked ${pokemon2Name} for ${damage} dmg`]);
                 }, 1000);
-                setLogs([...logs, `${pokemon1Name} attacked ${pokemon2Name} for ${damage} dmg`]);
+                
             } else {
                 setAttackAnimation({animation: true, pokemon: 1});
                 setTimeout(() => {
                      setDmgNum({dmg: "miss!", pokemon: 2});
+                     setLogs([...logs, `${pokemon1Name} missed ${pokemon2Name}`]);
                 }, 1000);
-                setLogs([...logs, `${pokemon1Name} missed ${pokemon2Name}`]);
+                
             }
         } else if (turn1 === 2) {
             if (rnd !== 5) {
@@ -143,14 +155,15 @@ const Main = () => {
                 setTimeout(() => {
                     setLose1HP(damage);
                     setDmgNum({dmg: `${damage} dmg!`, pokemon: 1});
+                    setLogs([...logs, `${pokemon2Name} attacked ${pokemon1Name} for ${damage} dmg`]);
                 }, 1000);
-                setLogs([...logs, `${pokemon2Name} attacked ${pokemon1Name} for ${damage} dmg`]);
+               
             } else {
                 setAttackAnimation({animation: true, pokemon: 2});
                 setTimeout(() => {
                     setDmgNum({dmg: "miss!", pokemon: 1});
-                }, 1000);
-                setLogs([...logs, `${pokemon2Name} missed ${pokemon1Name}`]);
+                    setLogs([...logs, `${pokemon2Name} missed ${pokemon1Name}`]);
+                }, 1000); 
             }
         }
         if(turn1 === 1) {
@@ -174,7 +187,7 @@ const Main = () => {
                 loseHP={lose1HP} 
                 dmgNum={dmgNum.pokemon === 1 && dmgNum}
                 attackAnimation={attackAnimation.pokemon === 1 && attackAnimation}
-                winsNumber={winsNumber.pokemon === 1 && winsNumber}
+                win={win}
             />
 
             <div className='attack-wrap'>
@@ -189,7 +202,7 @@ const Main = () => {
                 loseHP={lose2HP} 
                 dmgNum={dmgNum.pokemon === 2 && dmgNum}
                 attackAnimation={attackAnimation.pokemon === 2 && attackAnimation}
-                winsNumber={winsNumber.pokemon === 2 && winsNumber}
+                win={win}
             />
         </div>
 
@@ -210,6 +223,7 @@ const Main = () => {
                         setPokemon1HP={setPokemon1HP}
                         setPokemon2HP={setPokemon2HP}
                         setDmgNum={setDmgNum}
+                        setTurn1={setTurn1}
                     />
                 </div>
             </div> : 
@@ -224,6 +238,7 @@ const Main = () => {
                 setPokemon1HP={setPokemon1HP}
                 setPokemon2HP={setPokemon2HP}
                 setDmgNum={setDmgNum}
+                setTurn1={setTurn1}
             />
            }
             <MainLogs position={win.win && "center"} logs={logs} />

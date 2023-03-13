@@ -2,54 +2,56 @@ import React, { useContext } from 'react'
 import { GameContext } from '../../context/GameContext'
 import Button from '../button/Button'
 
-const MainMenu = ({ win, setWin, pokemon1, pokemon2, fetchPokemon1, fetchPokemon2, setLogs, setPokemon1HP, setPokemon2HP, setDmgNum }) => {
+const MainMenu = ({ win, setWin, pokemon1, pokemon2, fetchPokemon1, fetchPokemon2, setLogs, setPokemon1HP, setPokemon2HP, setDmgNum, setTurn1 }) => {
 
-    const { setGameStart, setPokemon1, setPokemon2, winsNumber, setWinsNumber } = useContext(GameContext)
+    const { setGameStart, setPokemon1, setPokemon2} = useContext(GameContext)
 
     const handleNewGame = () => {
-      setWin({win: false, pokemon: ""})
-      setLogs([])
-      setPokemon1({})
-      setPokemon2({})
-      setDmgNum({dmg: "", pokemon: ""})
-      fetchPokemon1()
-      fetchPokemon2()
-      setWinsNumber({num: 0, pokemon: ""})
-    }
+      setWin({win: false, pokemon: ""});
+      setLogs([]);
+      setPokemon1({});
+      setPokemon2({});
+      setTurn1(0);
+      setDmgNum({dmg: "", pokemon: ""});
+      fetchPokemon1();
+      fetchPokemon2();
+    };
 
     const handleHome = () => {
-      setWin({win: false, pokemon: ""})
-      setDmgNum({dmg: "", pokemon: ""})
-      setLogs([])
-      setPokemon1({})
-      setPokemon2({})
-      setGameStart(false)
-      setWinsNumber({num: 0, pokemon: ""})
-    }
+      setWin({win: false, pokemon: ""});
+      setDmgNum({dmg: "", pokemon: ""});
+      setLogs([]);
+      setPokemon1({});
+      setPokemon2({});
+      setTurn1(0);
+      setGameStart(false);
+    };
 
     const handleNewOponnent = () => {
       if(win.pokemon === pokemon1) {
-        setPokemon1(pokemon1)
-        setPokemon1HP(win.pokemon.stats[0].base_stat)
-        setWin({win: false, pokemon: ""})
-        setDmgNum({dmg: "", pokemon: ""})
-        setLogs([])
-        setPokemon2({})
-        fetchPokemon2()
-        setWinsNumber({num: winsNumber.num + 1, pokemon: 1})
+        setPokemon1(pokemon1);
+        setPokemon1HP(win.pokemon.stats[0].base_stat);
+        setWin({win: false, pokemon: ""});
+        setTurn1(0);
+        setDmgNum({dmg: "", pokemon: ""});
+        setLogs([]);
+        setPokemon2({});
+        fetchPokemon2();
+        
       } else if (win.pokemon === pokemon2) {
-          setPokemon2(pokemon2)
-          setPokemon2HP(win.pokemon.stats[0].base_stat)
-          setWin({win: false, pokemon: ""})
-          setDmgNum({dmg: "", pokemon: ""})
-          setLogs([])
-          setPokemon1({})
-          fetchPokemon1()
-          setWinsNumber({num: winsNumber.num + 1, pokemon: 2})
+          setPokemon2(pokemon2);
+          setPokemon2HP(win.pokemon.stats[0].base_stat);
+          setWin({win: false, pokemon: ""});
+          setTurn1(0);
+          setDmgNum({dmg: "", pokemon: ""});
+          setLogs([]);
+          setPokemon1({});
+          fetchPokemon1();
+          
       } else {
         return
       }
-    }
+    };
 
   return (
     <div className='main-menu'>
