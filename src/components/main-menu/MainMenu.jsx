@@ -34,7 +34,6 @@ const MainMenu = ({ win, setWin, pokemon1, pokemon2, fetchPokemon1, fetchPokemon
         setWin({win: false, pokemon: ""});
         setTurn1(0);
         setDmgNum({dmg: "", pokemon: ""});
-        setLogs([]);
         setPokemon2({});
         fetchPokemon2();
         
@@ -44,7 +43,6 @@ const MainMenu = ({ win, setWin, pokemon1, pokemon2, fetchPokemon1, fetchPokemon
           setWin({win: false, pokemon: ""});
           setTurn1(0);
           setDmgNum({dmg: "", pokemon: ""});
-          setLogs([]);
           setPokemon1({});
           fetchPokemon1();
           
